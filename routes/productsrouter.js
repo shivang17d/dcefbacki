@@ -57,7 +57,7 @@ router.delete('/admin/removeproduct/:id',authenticateToken,(req,res)=>{
 
 router.delete('/admin/removeproducts',authenticateToken,(req,res)=>{
   const currentDirectory = __dirname;
-  const fileDirectory= '../main/product_image'
+  const fileDirectory= 'product_image'
   const filePath = path.resolve(currentDirectory, fileDirectory);
   fs.unlink(filePath, function (err) {
       console.log(err);
@@ -88,7 +88,7 @@ router.post('/upload', upload.single('file'), (req, res) => {
   });
 
 router.get('/download/:id', (req, res) => {
-    fs.readdir('../main/product_image', (err, files) => {
+    fs.readdir('product_image', (err, files) => {
       if (err) {
         console.error('Error reading directory:', err);
         return res.sendStatus(500);
@@ -100,7 +100,7 @@ router.get('/download/:id', (req, res) => {
         if (fileNameWithoutExtension === req.params.id) {
           fileName = file;
           // Move the res.download statement here
-          res.download('../main/product_image/' + fileName);
+          res.download('product_image/' + fileName);
         }
       });
   
