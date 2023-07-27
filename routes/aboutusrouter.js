@@ -40,8 +40,8 @@ router.post('/admin/createaboutus',authenticateToken,(req,res)=>{
 
 router.delete('/admin/removeaboutuss',authenticateToken,(req,res)=>{
   const currentDirectory = __dirname;
-    const fileDirectory= '../main/timeline_image'
-    const filePath = path.resolve(currentDirectory, fileDirectory);
+    const fileDirectory= 'timeline_image'
+    const filePath = path.resolve(fileDirectory);
     fs.unlink(filePath, function (err) {
         console.log(err);
     });
@@ -71,7 +71,7 @@ router.post('/upload', upload.single('file'), (req, res) => {
   });
 
 router.get('/download/:id', (req, res) => {
-    fs.readdir('../main/timeline_image', (err, files) => {
+    fs.readdir('timeline_image', (err, files) => {
       if (err) {
         console.error('Error reading directory:', err);
         return res.sendStatus(500);
@@ -83,7 +83,7 @@ router.get('/download/:id', (req, res) => {
         if (fileNameWithoutExtension === req.params.id) {
           fileName = file;
           // Move the res.download statement here
-          res.download('../main/timeline_image/' + fileName);
+          res.download('timeline_image/' + fileName);
         }
       });
   
