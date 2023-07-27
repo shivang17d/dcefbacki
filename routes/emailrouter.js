@@ -4,7 +4,7 @@ const sendEmail=require('../services/email')
 const router = express.Router();
 const path = require('path');
 const currentDirectory = __dirname;
-const fileDirectory= '../main/local_directory'
+const fileDirectory= 'local_directory'
 
 router.post('/sendemail',(req,res)=>{
     const recipient=req.body.recipient;
@@ -12,7 +12,7 @@ router.post('/sendemail',(req,res)=>{
     const body=req.body.message;
     const fileName=(req.body.filename===undefined)?"":req.body.filename;
     console.log(fileName)
-    const filePath = path.resolve(currentDirectory, fileDirectory,fileName);
+    const filePath = path.resolve(fileDirectory,fileName);
     const isAttachment=req.body.isAttachment;
     const from=req.body.email;
     console.log(req.body)
