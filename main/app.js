@@ -11,7 +11,8 @@ const loginrouter = require('../routes/loginrouter')
 const emailrouter = require('../routes/emailrouter')
 const aboutusrouter = require('../routes/aboutusrouter')
 const app = express();
-const url = 'mongodb+srv://Sameer123:sameer123@cluster0.tssquen.mongodb.net/Test?retryWrites=true&w=majority';
+const url = 'mongodb+srv://shivang17d:shivang17d@cluster0.usj9veo.mongodb.net/?retryWrites=true&w=majority';
+
 
 // mongoose.connect(dbURI).then((result)=>{
 //     app.listen(8080);
